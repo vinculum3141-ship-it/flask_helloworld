@@ -14,8 +14,7 @@ eval $(minikube -p minikube docker-env)
 docker build -t hello-flask:0.1 .
 # verify: docker images | grep hello-flask
 ```
-This points your shell’s docker to Minikube’s Docker daemon so the image is directly available. 
-
+This points your shell’s docker to Minikube’s Docker daemon so the image is directly available.     
 Alternatively,
 ```
 # from your project dir
