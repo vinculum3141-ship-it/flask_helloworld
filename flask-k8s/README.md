@@ -54,15 +54,12 @@ A Quick method (minikube will print a URL and open browser if you want):
 minikube service hello-flask --url
 # example output: http://192.168.49.2:32000  (open in browser or curl)
 ```
-`minikube service` is the easiest local way to reach NodePort/LoadBalancer services. 
-minikube
-
+`minikube service` is the easiest local way to reach NodePort/LoadBalancer services.     
 Alternate: port-forward to local machine:
 ```
 kubectl port-forward svc/hello-flask 5000:5000
 # then visit http://localhost:5000
 ```
-
 **Expected quick check:**
 ```
 kubectl get pods
