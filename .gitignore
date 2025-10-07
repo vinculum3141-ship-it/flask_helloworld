@@ -19,6 +19,9 @@ dist/
 # Package files
 *.jar
 
+# Vim temporary files
+*.swp
+
 # Maven
 target/
 dist/
