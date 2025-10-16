@@ -3,7 +3,6 @@
 # copies the requirements and app files, installs dependencies, exposes port 5000,
 # and sets the default command to run the Flask app with 'python app.py'.
 # This setup is commonly used to containerize and deploy Python web applications.
-# tiny, simple container for Flask
 FROM python:3.11-slim
 WORKDIR /app
 COPY requirements.txt .
