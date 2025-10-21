@@ -6,7 +6,12 @@
 FROM python:3.11-slim
 WORKDIR /app
 COPY requirements.txt .
-RUN pip install --no-cache-dir -r requirements.txt
+# Ensure pip is up-to-date, then install pinned dependencies from requirements.txt
+RUN python -m pip install --upgrade pip \
+	&& pip install --no-cache-dir -r requirements.txt
+
+# Keep Python output unbuffered (helpful for logging in containers)
+ENV PYTHONUNBUFFERED=1
 COPY app.py .
 EXPOSE 5000
 CMD ["python", "app.py"]
