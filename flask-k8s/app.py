@@ -5,22 +5,13 @@ When run directly, it starts a web server listening on all network interfaces at
 This is typically used as a minimal example for deploying Flask apps, such as in a Kubernetes environment.
 """
 
-import werkzeug
-from flask import Flask, jsonify
-
-# Compatibility shim: Werkzeug 3.x removed the `__version__` attribute that
-# older Flask test utilities reference. Provide a fallback so tests and
-# the Flask test client keep working when Werkzeug 3.x is installed.
-if not hasattr(werkzeug, "__version__"):
-    # set a reasonable default version string used only for compatibility checks
-    werkzeug.__version__ = "3.0.0"
-
+from flask import Flask
 
 app = Flask(__name__)
 
 @app.route("/")
 def hello():
-    return jsonify(message="Hello from Flask on Kubernetes (Minikube)!")
+    return "Hello from Flask on Kubernetes (Minikube)!"
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=5000)
